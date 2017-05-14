@@ -7,7 +7,12 @@ public class Tris {
     // 3*3 matrix
     private int rows=3;
     private int columns=3;
-    String[][] board = new String[rows][columns];
+    // added private attribute to the matrix
+    private String[][] board = new String[rows][columns];
+
+    /**
+     *
+     */
     public Tris(){
         for (int i=0; i<rows;i++)
             for (int j=0;j<columns;j++){
@@ -17,7 +22,7 @@ public class Tris {
     }
 
     /**
-     *
+     *It prints the board game
      * @return the state of the board
      */
     public String writeString()
@@ -33,13 +38,19 @@ public class Tris {
         return r;
     }
 
-    //Insert a play
+    /**
+     * Insert a play
+     */
     public void set(int i, int j, String player){
         if(board[i][j]!= " ")
             throw new IllegalArgumentException("Posizione gia` occupata");
         board[i][j]= player;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWinner(){
         String player;
         //Check the tris on the row
@@ -62,11 +73,18 @@ public class Tris {
         return player;
     }
 
-
+    /**
+     *
+     * @return
+     */
     private String checkVertical(){
         return check(columns,rows);
     }
 
+    /**
+     *
+     * @return
+     */
     private String checkHorizontal(){
         return check(rows,columns);
     }
@@ -99,7 +117,10 @@ public class Tris {
         return "";
     }
 
-
+    /**
+     *
+     * @return
+     */
     private String checkDiagonal(){
         int win = 0;
         String player;
